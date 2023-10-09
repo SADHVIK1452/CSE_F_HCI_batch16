@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display Array Elements</title>
+</head>
+<body>
+    <ul id="arrayList"></ul>
+    <script>
+        var myArray = ["DS", "HCI", "P&S", "DMS", "MPCA"];
+        var arrayList = document.getElementById("arrayList");
+        for (var i = 0; i < myArray.length; i++) {
+            var listItem = document.createElement("li");
+            listItem.textContent = myArray[i];
+            arrayList.appendChild(listItem);
+        }
+    </script>
+</body>
+</html>

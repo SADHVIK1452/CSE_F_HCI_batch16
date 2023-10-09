@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Armstrong or not</title>
+</head>
+<body>
+    <label for="number">Enter a number:</label>
+    <input type="number" id="number">
+    <button onclick="checkArmstrongNumber()">Check Armstrong Number</button>
+    <p id="result"></p>
+    <script>
+        function checkArmstrongNumber() {
+            var numberInput = document.getElementById("number");
+            var number = parseInt(numberInput.value);
+            if (!isNaN(number)) {
+                var originalNumber = number;
+                var sum = 0;
+                var numDigits = String(number).length;
+                while (number > 0) {
+                    var digit = number % 10;
+                    sum += Math.pow(digit, numDigits);
+                    number = Math.floor(number / 10);
+                }
+                if (sum === originalNumber) {
+                    document.getElementById("result").textContent = originalNumber + "Armstrong number";
+                } else {
+                    document.getElementById("result").textContent = originalNumber + "not an Armstrong number";
+                }
+            } else {
+                document.getElementById("result").textContent = "Please enter a valid number.";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calculator</title>
+    <style>
+        #clear {
+            width: 270px;
+            border: 3px solid gray;
+            border-radius: 3px;
+            padding: 20px;
+            background-color: black;
+        }
+        .formstyle {
+            width: 300px;
+            height: 530px;
+            margin: auto;
+            border: 3px black;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        input {
+            width: 20px;
+            background-color: black;
+            color: white;
+            border: 3px solid gray;
+            border-radius: 5px;
+            padding: 26px;
+            margin: 5px;
+            font-size: 15px;
+        }
+        #calc {
+            width: 250px;
+            border: 5px solid black;
+            border-radius: 3px;
+            padding: 20px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="formstyle">
+    <form name="form1">
+        <input id="calc" type="text" name="answer"><br><br>
+        <input type="button" value="1" onclick="appendToDisplay('1')">
+        <input type="button" value="2" onclick="appendToDisplay('2')">
+        <input type="button" value="3" onclick="appendToDisplay('3')">
+        <input type="button" value="+" onclick="appendToDisplay('+')">
+        <br><br>
+        <input type="button" value="4" onclick="appendToDisplay('4')">
+        <input type="button" value="5" onclick="appendToDisplay('5')">
+        <input type="button" value="6" onclick="appendToDisplay('6')">
+        <input type="button" value="-" onclick="appendToDisplay('-')">
+        <br><br>
+        <input type="button" value="7" onclick="appendToDisplay('7')">
+        <input type="button" value="8" onclick="appendToDisplay('8')">
+        <input type="button" value="9" onclick="appendToDisplay('9')">
+        <input type="button" value="*" onclick="appendToDisplay('*')">
+        <br><br>
+        <input type="button" value="/" onclick="appendToDisplay('/')">
+        <input type="button" value="0" onclick="appendToDisplay('0')">
+        <input type="button" value="." onclick="appendToDisplay('.')">
+        <input type="button" value="=" onclick="calculateResult()">
+        <br>
+        <input type="button" value="Clear All" onclick="clearDisplay()" id="clear">
+        <br>
+    </form>
+</div>
+
+<script>
+    function appendToDisplay(value) {
+        document.form1.answer.value += value;
+    }
+
+    function clearDisplay() {
+        document.form1.answer.value = '';
+    }
+
+    function calculateResult() {
+        const expression = document.form1.answer.value;
+        let result;
+
+        switch (expression) {
+            case '':
+                result = '';
+                break;
+            default:
+                try {
+                    result = eval(expression);
+                    if (isNaN(result) || !isFinite(result)) {
+                        throw new Error("Invalid input");
+                    }
+                } catch (error) {
+                    result = "Error";
+                }
+                break;
+        }
+
+        document.form1.answer.value = result;
+    }
+</script>
+</body>
+</html>

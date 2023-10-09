@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+    <script>
+        function validateForm() {
+            var username = document.forms["myForm"]["username"].value;
+            var password = document.forms["myForm"]["password"].value;
+            var rePassword = document.forms["myForm"]["rePassword"].value;
+            var phoneNumber = document.forms["myForm"]["phoneNumber"].value;
+            var pinCode = document.forms["myForm"]["pinCode"].value;
+            if (username.length < 8) {
+                alert("Username should be at least 8 characters.");
+                return false;
+            }
+            if (password.length < 8) {
+                alert("Password should be at least 8 characters.");
+                return false;
+            }
+            if (password !== rePassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+            if (phoneNumber.length > 10) {
+                alert("Phone number should be at most 10 digits.");
+                return false;
+            }
+            if (pinCode.length > 6) {
+                alert("Pin code should be at most 6 digits.");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Form Validation</h1>
+    <form name="myForm" onsubmit="return validateForm()" action="#" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br>
+        <label for="rePassword">Re-enter Password:</label>
+        <input type="password" id="rePassword" name="rePassword"><br>
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" id="phoneNumber" name="phoneNumber"><br>
+        <label for="pinCode">Pin Code:</label>
+        <input type="text" id="pinCode" name="pinCode"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

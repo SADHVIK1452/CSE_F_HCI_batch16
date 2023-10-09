@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display Array Elements in Reverse</title>
+</head>
+<body>
+    <div id="arrayDisplay"></div>
+    <script>
+        var myArray = ["Hello", "World"];
+        function displayArrayElementsInReverse() {
+            var arrayDiv = document.getElementById("arrayDisplay");
+            arrayDiv.innerHTML = "";
+            for (var i = myArray.length - 1; i >= 0; i--) {
+                var element = document.createElement("p");
+                element.textContent = "word " + (myArray.length - i) + ": " + myArray[i];
+                arrayDiv.appendChild(element);
+            }
+        }
+        displayArrayElementsInReverse();
+    </script>
+</body>
+</html>
